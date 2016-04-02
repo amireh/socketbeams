@@ -59,11 +59,12 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <!-- This is all it takes to load the socket.io-client,
          which exposes a io global, and then connect. -->
-    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="./socketio__client.js"></script>
     <script>
       // Notice that I’m not specifying any URL when I call io(), since
       //   it defaults to trying to connect to the host that serves the page.
-      var socket = io();
+      var socket = io('ws://localhost:8080');
       // Let’s make it so that when the user types in a message,
       //   the server gets it as a chat message event.
       $('form').submit(function(){

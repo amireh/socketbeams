@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SocketBeams TinyMCE Example - Basic</title>
+  <script src="../../node_modules/tinymce/tinymce.js"></script>
+  <script src="../../node_modules/tinymce/themes/modern/theme.js"></script>
+  <script src="../../dist/tinymce-socketbeams-plugin.js"></script>
+</head>
+
+<body>
+  <textarea></textarea>
+  <pre id="errorMessages"></pre>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: [ '-SocketBeamsPlugin' ],
+      socketBeams: {
+        onSyncError: function(a, b) {
+          var buffer = [];
+          buffer.push('Sync error details:\n');
+
+          buffer.push('Remote digest: ' + a.digest);
+          buffer.push('Local digest:  ' + b.digest);
+
+          buffer.push('');
+          buffer.push(Array(80).join('-'));
+
+          buffer.push('Remote version:\n', a.value);
+          buffer.push('');
+          buffer.push('Local version:\n', b.value);
+
+          document.querySelector('#errorMessages').innerText = buffer.join('\n');
+        }
+      },
+    });
+  </script>
+</body>
+</html>

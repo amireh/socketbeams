@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ws chat</title>
+  </head>
+
+  <body>
+    <marquee direction="right" scrollamount="24"></marquee>
+
+    <ul id="messages"></ul>
+    <form>
+      <input autofocus="autofocus" id="m" autocomplete="off" />
+      <button>Send</button>
+    </form>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function() {
+        var socket = new WebSocket('ws://localhost:8080');
+        var $messageBox = $('#m');
+
+        $('marquee').append(
+          "it's a socketbeam".split('').map(function(char, index) {
+            var colors = [ 'green', 'purple', 'orange' ];
+            var color = colors[index % colors.length];
+            return $('<span>' + char + '</span>').css('color', color);
+          })
+        );
+
+        socket.addEventListener('message', function(e) {
+          $('#messages').append($('<li>').text(e.data));
+        });
+
+        $('form').submit(function(){
+          socket.send($messageBox.val());
+          $messageBox.val('');
+
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

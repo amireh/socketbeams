@@ -1,0 +1,11 @@
+{
+  "name": "socketbeams-ws-chat-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^1.0.1"
+  }
+}
