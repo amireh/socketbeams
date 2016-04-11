@@ -1,0 +1,1 @@
+module.exports = require('imports?module=>undefined,define=>undefined!./sinon.js').sinon;
