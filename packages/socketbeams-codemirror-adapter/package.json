@@ -1,0 +1,51 @@
+{
+  "name": "socketbeams-codemirror-adapter",
+  "version": "1.0.0",
+  "description": "CodeMirror addon for collaborative editing using socketbeams.",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "test": "./node_modules/.bin/karma start",
+    "watch": "./node_modules/.bin/npm-watch"
+  },
+  "watch": {
+    "build": "lib/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amireh/socketbeams.git"
+  },
+  "keywords": [
+    "codemirror",
+    "ce",
+    "collaborative",
+    "editing",
+    "addon",
+    "plugin",
+    "realtime"
+  ],
+  "author": "Anthus Williams, Ahmad Amireh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amireh/socketbeams/issues"
+  },
+  "homepage": "https://github.com/amireh/socketbeams#readme",
+  "dependencies": {
+    "codemirror": "^5.13.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "chai": "^3.5.0",
+    "imports-loader": "^0.6.5",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-mocha": "^0.2.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "npm-watch": "^0.1.3",
+    "webpack": "^1.12.14"
+  }
+}

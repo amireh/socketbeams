@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SocketBeams CodeMirror Example - Basic</title>
+
+  <link rel="stylesheet" href="../../node_modules/codemirror/lib/codemirror.css">
+
+  <script src="../../node_modules/codemirror/lib/codemirror.js"></script>
+  <script src="../../node_modules/codemirror/mode/ruby/ruby.js"></script>
+  <script src="../../dist/codemirror-socketbeams-addon.js"></script>
+</head>
+
+<body>
+  <textarea id="codemirror-instance">
+class RubyClass
+  def ruby_method
+   %w[array of strings]
+  end
+end
+
+puts RubyClass.new.ruby_method
+  </textarea>
+
+  <script>
+    window.onload = function() {
+      window.editor = CodeMirror.fromTextArea(document.getElementById('codemirror-instance'), {
+        mode: 'ruby',
+        socketBeams: true,
+        lineNumbers: true,
+        lineWrapping: true,
+        gutters: ['CodeMirror-linenumbers']
+      });
+    }
+  </script>
+</body>
+</html>
+
